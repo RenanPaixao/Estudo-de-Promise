@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="catch"> Funcionando</h1>
+    <h1 id=notCatch> Ainda não deu certo</h1>
+    <!--  tentar mostrar modal na tela que aparece depois de clickar no botão e só some ao ter resposta da promise -->
+    <input id="sub" type="submit">
+    
+    <div style="background-color: blue; height: 400px; width: 400px;" id="modal">
+        <h1>
+            carregando...
+        </h1>
+    </div>
+    <div id='erro' style="display: none;">
+        <h1>Erro! Tente novamente mais tarde!'</h1>
+        <button id='hideBtn'>OK!</button>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
+    <script type="module" src="./scripts.js"></script>
+</body>
+
+</html>
