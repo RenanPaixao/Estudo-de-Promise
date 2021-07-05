@@ -29,9 +29,11 @@ async function getImage() {
 	return await axios
 		.get('https://avatars.githubusercontent.com/u/57810270?v=4')
 		.then(() => {
-			setTimeout(() => {
+			setTimeout(async () => {
 				batata = document.createElement('img');
 				batata.src = 'https://avatars.githubusercontent.com/u/57810270?v=4';
+				document.body.insertBefore(batata, catched);
+				batata.src = await consumer(prom);
 				document.body.insertBefore(batata, catched);
 			}, 3000);
 		})
@@ -80,3 +82,21 @@ sub.addEventListener('click', () => {
 			}, 3000);
 		});
 });
+/*
+ *
+ * Tests with handle of promises
+ *
+ */
+const prom = new Promise((resolve, reject) => {
+	try {
+		axios.get('https://random.dog/woof.json').then((value) => {
+			resolve(value.data);
+		});
+	} catch (e) {
+		reject(e);
+	}
+});
+
+async function consumer(promise) {
+	return await promise.then((value) => value.url);
+}
